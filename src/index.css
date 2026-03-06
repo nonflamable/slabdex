@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Varela+Round&display=swap');
+
+:root {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 4%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 4%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 4%;
+  --primary: 0 0% 4%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 94%;
+  --secondary-foreground: 0 0% 4%;
+  --muted: 0 0% 94%;
+  --muted-foreground: 0 0% 46%;
+  --accent: 0 0% 90%;
+  --accent-foreground: 0 0% 4%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+  --ring: 0 0% 4%;
+  --radius: 0.75rem;
+  --success: 142 71% 45%;
+  --success-foreground: 0 0% 98%;
+  --gold: 43 96% 56%;
+}
+
+.dark {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 18%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 16%;
+  --input: 0 0% 16%;
+  --ring: 0 0% 98%;
+  --success: 142 71% 45%;
+  --success-foreground: 0 0% 98%;
+  --gold: 43 96% 56%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Varela Round', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 99px;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Card hover effects */
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+/* Glass effect */
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--muted-foreground)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scan animation */
+@keyframes scan-line {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(200px); }
+  100% { transform: translateY(0); }
+}
+
+.scan-line {
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--accent)) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Number badge */
+.grade-badge-psa {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #ffffff;
+}
+.grade-badge-bgs {
+  background: linear-gradient(135deg, #1a2a1a, #1e3a1e);
+  color: #7ec87e;
+}
+.grade-badge-cgc {
+  background: linear-gradient(135deg, #2a1a1a, #3a1e1e);
+  color: #c87e7e;
+}
+.grade-badge-other {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  color: #aaaaaa;
+}
